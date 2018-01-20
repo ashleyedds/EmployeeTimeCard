@@ -23,12 +23,11 @@ $('#submit-button').on('click', function() {
 
 	employeeName = $('#name-input').val().trim();
 	role = $('#role-input').val().trim();
-	startDate = $('#start-date-input').val().split('-');
+	startDate = $('#start-date-input').val();
 	monthlyRate = $('#monthly-rate-input').val().trim();
 
 	//.set replaces old data with new data but does not add on
 	firebase.database().ref('recentUserPush').push({
-	// firebase.database().ref().set( {
 		employeeName: employeeName,
 		role: role,
 		startDate: startDate,
@@ -49,15 +48,7 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	monthlyRate = sv.monthlyRate;
 	submitDate = sv.dateAdded;
 
-	// function timeCalc() {
-	// 	let y = endDate[0] - startDate[0];
-	// 	let m = endDate[1] - startDate[1];
-	// 	let d = endDate[2] - startDate[2];
-	// 	let time = y * 12 + m + d * 0.166;
-	// 	return time.split(".").slice(2); 
-	// }
-
-	// monthsWorked = timeCalc();
+	// monthsWorked = ;
 	// totalBilled = ;
 
 	console.log(employeeName);
