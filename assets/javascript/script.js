@@ -34,10 +34,10 @@ $('#submit-button').on('click', function() {
 	//.set replaces old data with new data but does not add on
 	firebase.database().ref().push( {
 	// firebase.database().ref().set( {
-		name: name,
-		email: email,
-		age: age,
-		comment: comment,
+		employeeName: employeeName,
+		role: role,
+		startDate: startDate,
+		monthlyRate: monthlyRate,
 		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 
@@ -57,10 +57,19 @@ function timeCalc() {
 //snapshot is response we are getting from the server
 firebase.database().ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 // firebase.database().ref().on("value", function(snapshot) {
-	$("#name-display").html(snapshot.val().name);
-	$("#role-display").html(snapshot.val().email);
-	$("#start-date-display").html(snapshot.val().age);
-	$("#monthly-rate-display").html(snapshot.val().comment);
+	
+	var addEmployeeRow = $("<tr>");
+	addEmployeeRow.addClass("new-employee-data");
+	
+	var nameDisplay = $("name-display").html(snapshot.val().employeeName);
+
+	var roleDisplay = $("#role-display").html(snapshot.val().role);
+	
+	var startDateDisplay = $("#start-date-display").html(snapshot.val().startDate);
+	
+	var monthlyRateDisplay = $("#monthly-rate-display").html(snapshot.val().monthlyRate);
+
+	$("#table-headers").append(addEmployeeRow);
 
 });
 
