@@ -64,9 +64,9 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	console.log(role);
 	console.log(startDate);
 	console.log(monthlyRate);
-	console.log(submitTime);
-	console.log(monthsWorked);
-	console.log(totalBilled);
+	// console.log(submitTime);
+	// console.log(monthsWorked);
+	// console.log(totalBilled);
 	
 	var currentEmployeeRow = $("<tr>");
 	currentEmployeeRow.addClass("new-employee-data");
