@@ -77,24 +77,27 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	$("#start-date-display").append(startDate  + "<br>");
 	currentEmployeeRow.append(startDateDisplay);
 	
-	var monthlyRateDisplay = $("<td>");
-	monthlyRateDisplay.attr("id", "monthly-rate-display");
-	$("#monthly-rate-display").append(monthlyRate + "<br>");
-	currentEmployeeRow.append(monthlyRateDisplay);
+	// var monthsWorked = $("<td>");
+  // monthsWorked.attr("id", "months-worked-display");
+  // $("#months-worked-display").append(monthsWorked + "<br>");
+  // currentEmployeeRow.append(monthsWorkedDisplay);
+  
+  var monthlyRateDisplay = $("<td>");
+  monthlyRateDisplay.attr("id", "monthly-rate-display");
+  $("#monthly-rate-display").append(monthlyRate + "<br>");
+  currentEmployeeRow.append(monthlyRateDisplay);
+
+  // var totalBilledDisplay = $("<td>");
+  // totalBilledDisplay.attr("id", "total-billed-display");
+  // $("#total-billed-display").append(totalBilled + "<br>");
+  // currentEmployeeRow.append(totalBilledDisplay);
+
 
 	$("#table-body").append(currentEmployeeRow);
 
 }, function(errorObject) {
 	console.log("Errors handled; " + errorObject.code);
 });
-
-
-
-
-
-
-
-
 
 
 
