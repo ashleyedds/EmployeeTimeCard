@@ -46,16 +46,13 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	role = sv.role;
 	startDate = sv.startDate;
 	monthlyRate = sv.monthlyRate;
-	submitDate = moment.unix(sv.dateAdded).format('MMMM Do YYYY');
-
-	// monthsWorked = ;
+	monthsWorked = moment(startDate).fromNow();
 	// totalBilled = ;
 
 	console.log(employeeName);
 	console.log(role);
 	console.log(startDate);
 	console.log(monthlyRate);
-	console.log(submitDate);
 	console.log(monthsWorked);
 	console.log(totalBilled);
 	
