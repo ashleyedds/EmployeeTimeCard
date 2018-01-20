@@ -64,22 +64,22 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	
 	var nameDisplay = $("<td>");
 	nameDisplay.attr("id", "name-display");
-	$("#name-display").append(employeeName);
+	$("#name-display").text(employeeName);
 	currentEmployeeRow.append(nameDisplay);
 
 	var roleDisplay = $("<td>");
 	roleDisplay.attr("id", "role-display");
-	$("#role-display").append(role);
+	$("#role-display").text(role);
 	currentEmployeeRow.append(roleDisplay);
 	
 	var startDateDisplay = $("<td>");
 	startDateDisplay.attr("id", "start-date-display");
-	$("#start-date-display").append(startDate);
+	$("#start-date-display").text(startDate);
 	currentEmployeeRow.append(startDateDisplay);
 	
 	var monthlyRateDisplay = $("<td>");
 	monthlyRateDisplay.attr("id", "monthly-rate-display");
-	$("#monthly-rate-display").append(monthlyRate);
+	$("#monthly-rate-display").text(monthlyRate);
 	currentEmployeeRow.append(monthlyRateDisplay);
 
 	$("#table-body").append(currentEmployeeRow);
