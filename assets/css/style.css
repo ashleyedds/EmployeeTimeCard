@@ -1,0 +1,9 @@
+.tableTop {
+    font-weight: bold;
+    padding: 10px;
+}
+
+th {
+  border: 2px solid pink;
+  padding-right: 95px;
+}
