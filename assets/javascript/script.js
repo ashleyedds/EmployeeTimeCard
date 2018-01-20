@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 var employeeName = "";
 var role = "";
-var startDate = [];
+var startDate = "";
 var monthsWorked = "";
 var monthlyRate = "";
 var totalBilled = "";
