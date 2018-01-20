@@ -57,18 +57,30 @@ function timeCalc() {
 firebase.database().ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 // firebase.database().ref().on("value", function(snapshot) {
 	
-	var addEmployeeRow = $("<tr>");
-	addEmployeeRow.addClass("new-employee-data");
+	var currentEmployeeRow = $("<tr>");
+	currentEmployeeRow.addClass("new-employee-data");
 	
-	var nameDisplay = $("name-display").html(snapshot.val().employeeName);
+	var nameDisplay = $("<td>");
+	nameDisplay.attr("id", "name-display");
+	$("#name-display").html(snapshot.val().employeeName);
+	currentEmployeeRow.append(nameDisplay);
 
-	var roleDisplay = $("#role-display").html(snapshot.val().role);
+	var roleDisplay = $("<td>");
+	roleDisplay.attr("id", "role-display");
+	$("#role-display").html(snapshot.val().role);
+	currentEmployeeRow.append(roleDisplay);
 	
-	var startDateDisplay = $("#start-date-display").html(snapshot.val().startDate);
+	var startDateDisplay = $("<td>");
+	startDateDisplay.attr("id", "start-date-display");
+	$("#start-date-display").html(snapshot.val().startDate);
+	currentEmployeeRow.append(startDateDisplay);
 	
-	var monthlyRateDisplay = $("#monthly-rate-display").html(snapshot.val().monthlyRate);
+	var monthlyRateDisplay = $("<td>");
+	monthlyRateDisplay.attr("id", "monthly-rate-display");
+	$("#monthly-rate-display").html(snapshot.val().monthlyRate);
+	currentEmployeeRow.append(monthlyRateDisplay);
 
-	$("#table-headers").append(addEmployeeRow);
+	$("#table-body").append(currentEmployeeRow);
 
 });
 
