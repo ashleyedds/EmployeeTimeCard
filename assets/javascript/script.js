@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 var employeeName = "";
 var role = "";
-var startDate = "";
+var startDate = [];
 var monthsWorked = "";
 var monthlyRate = "";
 var totalBilled = "";
@@ -20,12 +20,20 @@ var totalBilled = "";
 $('#add-user').on('click', function() {
 	event.preventDefault();
 
+
 	employeeName = $('#name-input').val().trim();
 	role = $('#email-input').val().trim();
-	startDate = $('#age-input').val().trim();
+	startDate = $('#age-input').val().trim().split('/');
 	monthsWorked = $('#comment-input').val().trim();
 	monthlyRate = $('#comment-input').val().trim();
 	totalBilled = $('#comment-input').val().trim();
+
+	console.log
+	console.log(startDate);
+
+function monthsCalc() {
+	startDate
+}
 
 
 //.set replaces old data with new data but does not add on
