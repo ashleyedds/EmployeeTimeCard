@@ -1,8 +1,38 @@
-.tableTop {
-    font-weight: bold;
-    padding: 10px;
+
+/* HEADER */
+.jumbotron {
+    text-align: center;
+    background-color: black;
+    color: #fff;
 }
 
+
+/* TABLE STYLING */
 th {
   padding-right: 95px;
+}
+
+/* PANEL */
+.panel .panel-heading {
+    background-color: rgb(39, 92, 128);
+    color: #fff;
+}
+
+.panel .panel-heading .panel-title {
+    font-weight: bold;
+}
+
+/* FORM */
+form {
+    font-weight: bold;
+}
+
+input[type=text], input[type=date] {
+    width: 97%;
+    margin: 5px 10px;
+    font-weight:normal;
+}
+
+input[type=submit] {
+    margin: 20px 10px;
 }
