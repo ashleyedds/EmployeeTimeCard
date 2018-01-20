@@ -23,13 +23,8 @@ $('#submit-button').on('click', function() {
 
 	employeeName = $('#name-input').val().trim();
 	role = $('#role-input').val().trim();
-	startDate = $('#start-date-input').val().trim().split('/');
+	startDate = $('#start-date-input').val().split('/');
 	monthlyRate = $('#monthly-rate-input').val().trim();
-
-	console.log(employeeName);
-	console.log(role);
-	console.log(startDate);
-	console.log(monthlyRate);
 
 	//.set replaces old data with new data but does not add on
 	firebase.database().ref('recentUserPush').push({
@@ -41,49 +36,58 @@ $('#submit-button').on('click', function() {
 		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 
-	submitTime = firebase.database().ref()
-	monthsWorked = timeCalc();
-	totalBilled = $('#comment-input').val().trim();
-	console.log(submitTime);
-	console.log(monthsWorked);
-	console.log(totalBilled);
-
 });
-
-function timeCalc() {
-	
-}
 
 //snapshot is response we are getting from the server
 firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(1).on("child_added", function(snapshot) {
-// firebase.database().ref().on("value", function(snapshot) {
+
+	const sv = snapshot.val();
+
+	employeeName = sv.employeeName;
+	role = sv.role;
+	startDate = sv.startDate;
+	monthlyRate = sv.monthlyRate;
+	submitTime = sv.dateAdded;
+	// monthsWorked = ;
+	// totalBilled = ;
+
+	console.log(employeeName);
+	console.log(role);
+	console.log(startDate);
+	console.log(monthlyRate);
+	console.log(submitTime);
+	console.log(monthsWorked);
+	console.log(totalBilled);
 	
 	var currentEmployeeRow = $("<tr>");
 	currentEmployeeRow.addClass("new-employee-data");
 	
 	var nameDisplay = $("<td>");
 	nameDisplay.attr("id", "name-display");
-	$("#name-display").html(snapshot.val().employeeName);
+	$("#name-display").html(employeeName);
 	currentEmployeeRow.append(nameDisplay);
 
 	var roleDisplay = $("<td>");
 	roleDisplay.attr("id", "role-display");
-	$("#role-display").html(snapshot.val().role);
+	$("#role-display").html(role);
 	currentEmployeeRow.append(roleDisplay);
 	
 	var startDateDisplay = $("<td>");
 	startDateDisplay.attr("id", "start-date-display");
-	$("#start-date-display").html(snapshot.val().startDate);
+	$("#start-date-display").html(startDate);
 	currentEmployeeRow.append(startDateDisplay);
 	
 	var monthlyRateDisplay = $("<td>");
 	monthlyRateDisplay.attr("id", "monthly-rate-display");
-	$("#monthly-rate-display").html(snapshot.val().monthlyRate);
+	$("#monthly-rate-display").html(monthlyRate);
 	currentEmployeeRow.append(monthlyRateDisplay);
 
 	$("#table-body").append(currentEmployeeRow);
 
+}, function(errorObject) {
+	console.log("Errors handled; " + errorObject.code);
 });
+
 
 
 
