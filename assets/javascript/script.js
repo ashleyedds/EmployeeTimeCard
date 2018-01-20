@@ -23,7 +23,7 @@ $('#submit-button').on('click', function() {
 
 	employeeName = $('#name-input').val().trim();
 	role = $('#role-input').val().trim();
-	startDate = $('#start-date-input').val();
+	startDate = $('#start-date-input').val().split('-');
 	monthlyRate = $('#monthly-rate-input').val().trim();
 
 	//.set replaces old data with new data but does not add on
