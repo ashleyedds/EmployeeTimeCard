@@ -16,6 +16,7 @@ var startDate = [];
 var monthsWorked = "";
 var monthlyRate = "";
 var totalBilled = "";
+var submitTime = "";
 
 $('#add-user').on('click', function() {
 	event.preventDefault();
@@ -24,17 +25,12 @@ $('#add-user').on('click', function() {
 	employeeName = $('#name-input').val().trim();
 	role = $('#email-input').val().trim();
 	startDate = $('#age-input').val().trim().split('/');
-	monthsWorked = $('#comment-input').val().trim();
 	monthlyRate = $('#comment-input').val().trim();
-	totalBilled = $('#comment-input').val().trim();
 
-	console.log
+	console.log(employeeName);
+	console.log(role);
 	console.log(startDate);
-
-function monthsCalc() {
-	startDate
-}
-
+	console.log(monthlyRate);
 
 //.set replaces old data with new data but does not add on
 	firebase.database().ref().push( {
@@ -45,7 +41,18 @@ function monthsCalc() {
 		comment: comment,
 		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
+
+
+	monthsWorked = timeCalc();
+	totalBilled = $('#comment-input').val().trim();
+	console.log(monthsWorked);
+	console.log(totalBilled);
+
 });
+
+function timeCalc() {
+
+}
 
 //snapshot is response we are getting from the server
 firebase.database().ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
