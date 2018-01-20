@@ -18,7 +18,7 @@ var monthlyRate = "";
 var totalBilled = "";
 var submitTime = "";
 
-$('#add-user').on('click', function() {
+$('#submit-button').on('click', function() {
 	event.preventDefault();
 
 	employeeName = $('#name-input').val().trim();
@@ -57,9 +57,9 @@ function timeCalc() {
 firebase.database().ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 // firebase.database().ref().on("value", function(snapshot) {
 	$("#name-display").html(snapshot.val().name);
-	$("#email-display").html(snapshot.val().email);
-	$("#age-display").html(snapshot.val().age);
-	$("#comment-display").html(snapshot.val().comment);
+	$("#role-display").html(snapshot.val().email);
+	$("#start-date-display").html(snapshot.val().age);
+	$("#monthly-rate-display").html(snapshot.val().comment);
 
 });
 
