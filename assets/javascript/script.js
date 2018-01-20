@@ -32,7 +32,7 @@ $('#submit-button').on('click', function() {
 	console.log(monthlyRate);
 
 	//.set replaces old data with new data but does not add on
-	firebase.database().ref().push( {
+	firebase.database().ref('recentUserPush').push({
 	// firebase.database().ref().set( {
 		employeeName: employeeName,
 		role: role,
@@ -41,7 +41,7 @@ $('#submit-button').on('click', function() {
 		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 
-	submitTime = firebase.database().ref().getInstance(dateAdded);
+	submitTime = firebase.database().ref()
 	monthsWorked = timeCalc();
 	totalBilled = $('#comment-input').val().trim();
 	console.log(submitTime);
@@ -55,7 +55,7 @@ function timeCalc() {
 }
 
 //snapshot is response we are getting from the server
-firebase.database().ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(1).on("child_added", function(snapshot) {
 // firebase.database().ref().on("value", function(snapshot) {
 	
 	var addEmployeeRow = $("<tr>");
