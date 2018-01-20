@@ -46,7 +46,7 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	role = sv.role;
 	startDate = sv.startDate;
 	monthlyRate = sv.monthlyRate;
-	submitDate = sv.dateAdded;
+	submitDate = moment.unix(sv.dateAdded).format('MMMM Do YYYY');
 
 	// monthsWorked = ;
 	// totalBilled = ;
@@ -55,9 +55,9 @@ firebase.database().ref('recentUserPush').orderByChild('dateAdded').limitToLast(
 	console.log(role);
 	console.log(startDate);
 	console.log(monthlyRate);
-	// console.log(submitTime);
-	// console.log(monthsWorked);
-	// console.log(totalBilled);
+	console.log(submitDate);
+	console.log(monthsWorked);
+	console.log(totalBilled);
 	
 	var currentEmployeeRow = $("<tr>");
 	currentEmployeeRow.addClass("new-employee-data");
