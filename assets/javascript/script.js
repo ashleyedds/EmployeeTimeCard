@@ -22,9 +22,9 @@ $('#add-user').on('click', function() {
 	event.preventDefault();
 
 	employeeName = $('#name-input').val().trim();
-	role = $('#email-input').val().trim();
-	startDate = $('#age-input').val().trim().split('/');
-	monthlyRate = $('#comment-input').val().trim();
+	role = $('#role-input').val().trim();
+	startDate = $('#start-date-input').val().trim().split('/');
+	monthlyRate = $('#monthly-rate-input').val().trim();
 
 	console.log(employeeName);
 	console.log(role);
