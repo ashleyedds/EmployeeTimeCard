@@ -31,7 +31,7 @@ $('#add-user').on('click', function() {
 	console.log(startDate);
 	console.log(monthlyRate);
 
-//.set replaces old data with new data but does not add on
+	//.set replaces old data with new data but does not add on
 	firebase.database().ref().push( {
 	// firebase.database().ref().set( {
 		name: name,
@@ -41,16 +41,17 @@ $('#add-user').on('click', function() {
 		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	});
 
-
+	submitTime = firebase.database().ref().getInstance(dateAdded);
 	monthsWorked = timeCalc();
 	totalBilled = $('#comment-input').val().trim();
+	console.log(submitTime);
 	console.log(monthsWorked);
 	console.log(totalBilled);
 
 });
 
 function timeCalc() {
-
+	
 }
 
 //snapshot is response we are getting from the server
